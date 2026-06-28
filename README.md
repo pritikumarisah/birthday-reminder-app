@@ -45,4 +45,4 @@ npm start
 
 ## Author
 
-**Priti Kumari**
+**Priti Kumari Sah**

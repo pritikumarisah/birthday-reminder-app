@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Reminder 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Login Protection -->
+    <script>
+        const token = localStorage.getItem("token");
+
+        if (!token || token === "undefined") {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- Animated Background -->
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <!-- APP -->
+    <div class="container">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+
+            <button id="darkModeBtn">
+                🌙 Dark Mode
+            </button>
+
+            <button onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </div>
+
+        <h1>🎂 Birthday Reminder</h1>
+
+        <!-- Search -->
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search birthdays..."
+            autocomplete="off"
+        >
+
+        <!-- Statistics Dashboard -->
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Birthdays</h3>
+                <p id="totalCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>This Month</h3>
+                <p id="monthCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Next Birthday</h3>
+                <p id="nextBirthday">-</p>
+            </div>
+
+        </div>
+
+        <!-- Birthday Form -->
+        <div class="form">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                required
+            >
+
+            <input
+                type="date"
+                id="birthday"
+                required
+            >
+
+            <input
+                type="text"
+                id="contact"
+                placeholder="Contact Number"
+            >
+
+         
+
+            <input
+                type="text"
+                id="gift"
+                placeholder="Gift Idea"
+            >
+
+            <input
+                type="number"
+                id="reminder"
+                placeholder="Reminder Days Before"
+            >
+
+            <input
+                type="file"
+                id="photo"
+                accept="image/*"
+            >
+
+            <button
+                id="saveBtn"
+                onclick="addBirthday()"
+            >
+                💾 Save Birthday
+            </button>
+
+        </div>
+
+        <!-- Countdown -->
+        <h2>⏳ Live Countdown</h2>
+
+        <div id="countdown">
+            No birthdays yet 🎂
+        </div>
+
+        <!-- Birthday List -->
+        <h2>🎉 Upcoming Birthdays</h2>
+
+        <div class="scroll-box">
+            <ul id="birthdayList"></ul>
+        </div>
+
+    </div>
+
+    <!-- Logout -->
+    <script>
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
